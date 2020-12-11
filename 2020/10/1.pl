@@ -1,13 +1,11 @@
 use 5.18.4;
 use strict;
-use Data::Dumper;
 use File::Slurp;
 
 my @lines = read_file('input');
 @lines = sort {$a <=> $b} @lines;
 
 my %diff;
-
 
 foreach my $i (0 .. scalar @lines -1) {
     chomp $lines[$i];
@@ -23,7 +21,6 @@ foreach my $i (0 .. scalar @lines -1) {
 $diff{3}++;
 
 say "done";
-say Dumper \%diff;
 say $diff{1} * $diff{3};
 
 
