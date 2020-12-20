@@ -7,7 +7,7 @@ sub process_equation {
     my ($equation) = @_;
 
     if ($equation && @$equation) {
-        say "solving: ", join ' ', @$equation;
+        #say "solving: ", join ' ', @$equation;
     }
     my $solution;
     my $operation;
@@ -71,7 +71,7 @@ sub process_equation {
         }
     }
     say "solved: $solution";
-    return ($solution, $equation);
+    return ($solution);
 }
 
 my @lines;
@@ -142,18 +142,19 @@ my @tests = (
 );
 
 
-foreach my $test (@tests) {
-    my ($value) = process_equation($test->[0]);
-    say $value, ' ', $test->[1];
-    die unless $value == $test->[1];
-    say "NEXT\n\n";
-}
+#foreach my $test (@tests) {
+#    my ($value) = process_equation($test->[0]);
+#    say $value, ' ', $test->[1];
+#    die unless $value == $test->[1];
+#    say "NEXT\n\n";
+#}
 
 my $sum;
 foreach my $line (@lines) {
 
-    say 'WASSUP: ', join '', @$line;
-    my $value = process_equation($line);
+    say 'WASSUP: ', join ' ', @$line;
+    my ($value) = process_equation($line);
+    say 'result: ', $value;
     $sum += $value;
 
     say "\n\n\n\n";
